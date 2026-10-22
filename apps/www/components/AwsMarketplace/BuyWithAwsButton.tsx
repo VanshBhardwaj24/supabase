@@ -30,10 +30,11 @@ export function BuyWithAwsButton({
   return (
     <Button
       asChild
+      variant="primary"
       size={size}
       // Sizing to optically match sibling "Request a private offer" button
       iconRight={<ExternalLink className="h-4! w-4!" />}
-      className={cn(className)}
+      className={className}
       data-awsmp-bwa-cta="BuyWithAws"
       data-awsmp-bwa-seller-id={AWS_MARKETPLACE_SELLER_ID}
       data-awsmp-bwa-product-id={AWS_MARKETPLACE_PRODUCT_ID}
