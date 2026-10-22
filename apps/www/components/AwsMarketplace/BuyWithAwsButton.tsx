@@ -1,8 +1,7 @@
 import { ExternalLink } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { Button, cn } from 'ui'
+import { Button } from 'ui'
 
-import { AwsSmileIcon } from './AwsSmileIcon'
 import {
   AWS_MARKETPLACE_LANDING_URL,
   AWS_MARKETPLACE_PRODUCT_ID,
@@ -19,7 +18,7 @@ type BuyWithAwsButtonProps = {
 }
 
 /**
- * Our Button, styled for AWS and wired for Buy with AWS click tracking.
+ * Primary Button wired to Buy with AWS procurement + partner.js click tracking.
  * Uses partner.js data attributes rather than AWS’s stock button markup.
  */
 export function BuyWithAwsButton({
@@ -32,14 +31,9 @@ export function BuyWithAwsButton({
     <Button
       asChild
       size={size}
-      icon={<AwsSmileIcon className="text-aws-ink" />}
-      // Sizing and fill to optically match sibling "Request a private offer" button
-      iconRight={<ExternalLink className="h-4! w-4! text-aws-ink/60" />}
-      className={cn(
-        // Partner brand tokens from styles/globals.css (@theme --color-aws-*).
-        'border-transparent bg-aws-orange text-aws-ink hover:bg-aws-orange-hover hover:text-aws-ink',
-        className
-      )}
+      // Sizing to optically match sibling "Request a private offer" button
+      iconRight={<ExternalLink className="h-4! w-4!" />}
+      className={cn(className)}
       data-awsmp-bwa-cta="BuyWithAws"
       data-awsmp-bwa-seller-id={AWS_MARKETPLACE_SELLER_ID}
       data-awsmp-bwa-product-id={AWS_MARKETPLACE_PRODUCT_ID}
